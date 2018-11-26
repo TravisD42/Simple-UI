@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Diagnostics;
+using System.Text;
+using System.Threading;
 
 namespace Simple_UI
 {
@@ -41,24 +43,25 @@ namespace Simple_UI
                             // we no longer need to add to the parsedUser
                             break;
                         }
-                        parsedUser += username[i];                     
+                        parsedUser += username[i];
                     }
                     // to print out the parsed username uncomment the line below
                     //Console.WriteLine(parsedUser);
 
                     // now that we have the username, we can output it to a txt file for the bash script to read
-   
+
                     string currentUser = Environment.UserName;
                     string partialPath = @"C:\\Users\\" + currentUser;
                     string halfPath = "Desktop\\Thesis\\username.txt";
                     string filePath = Path.Combine(partialPath, halfPath);
-                    System.IO.File.WriteAllText(filePath, parsedUser);
+                    // just write to project directory
+                    System.IO.File.WriteAllText("username.txt", parsedUser);
                     break;
                 }
             }
 
             while (true)
-            { 
+            {
                 // Have the user enter a password, but hide the input for security reasons
                 Console.Write("\nPlease create a password: ");
                 string password = null;
@@ -94,42 +97,26 @@ namespace Simple_UI
                     string partialPath = @"C:\\Users\\" + currentUser;
                     string halfPath = "Desktop\\Thesis\\password.txt";
                     string filePath = Path.Combine(partialPath, halfPath);
-                    System.IO.File.WriteAllText(filePath, password);
+                    // just write to project directory
+                    System.IO.File.WriteAllText("password.txt", password);
                     break;
                 }
             }
 
+            // get the file path where the scripts are found!
+
+            string userName = Environment.UserName;
+            string getToUser = @"C:\\Users\\" + userName;
+            string getToBatch = "Desktop\\Thesis\\testBatch.bat";
+            string pathToBatch = Path.Combine(getToUser, getToBatch);
+
             // Generate and copy over ssh keys in a windows platform
 
-            //Process genKey = new Process();
-            //genKey.StartInfo.FileName = "cmd.exe";
-            //genKey.StartInfo.CreateNoWindow = true;
-            //genKey.StartInfo.RedirectStandardInput = true;
-            //genKey.StartInfo.RedirectStandardOutput = true;
-            //genKey.StartInfo.UseShellExecute = false;
-            //genKey.Start();
-            //genKey.StandardInput.WriteLine("ssh-keygen -t rsa");
-            ////genKey.StandardInput.WriteLine("plink -ssh " + parsedUser + "@10.250.0.104 -m test.sh");
-            //genKey.StandardInput.Flush();
-            //genKey.StandardInput.Close();
-            //genKey.WaitForExit();
-            //Console.WriteLine(genKey.StandardOutput.ReadToEnd());
+            ProcessStartInfo proc = new ProcessStartInfo();
+            proc.FileName = @"C:\windows\system32\cmd.exe";
+            proc.Arguments = @"/c testBatch.bat";
+            Process.Start(proc);
 
-            // Execute the script within the program
-            Process process = new Process();
-            // start the command prompt
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.UseShellExecute = false;
-            process.Start();
-            //process.StandardInput.WriteLine("ping google.com");
-            process.StandardInput.WriteLine("plink -ssh " + parsedUser + "@10.0.2.15 -m ls");//10.250.0.104 -m test.sh");
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-            process.WaitForExit();
-            Console.WriteLine(process.StandardOutput.ReadToEnd());
         }
     }
 }

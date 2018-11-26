@@ -9,3 +9,14 @@ C:\Users\tdill\source\repos\Simple UI\Simple UI\obj\Debug\netcoreapp2.0\Simple U
 C:\Users\tdill\source\repos\Simple UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.AssemblyInfo.cs
 C:\Users\tdill\source\repos\Simple UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.dll
 C:\Users\tdill\source\repos\Simple UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.pdb
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\bin\Debug\netcoreapp2.0\Simple UI.deps.json
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\bin\Debug\netcoreapp2.0\Simple UI.runtimeconfig.json
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\bin\Debug\netcoreapp2.0\Simple UI.runtimeconfig.dev.json
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\bin\Debug\netcoreapp2.0\Simple UI.dll
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\bin\Debug\netcoreapp2.0\Simple UI.pdb
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.csprojAssemblyReference.cache
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.csproj.CoreCompileInputs.cache
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.AssemblyInfoInputs.cache
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.AssemblyInfo.cs
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.dll
+C:\Users\tdill\Desktop\Thesis\Simple-UI\Simple UI\obj\Debug\netcoreapp2.0\Simple UI.pdb
