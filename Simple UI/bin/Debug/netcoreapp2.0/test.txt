@@ -1,3 +1,0 @@
-whoami
-exit
-exit

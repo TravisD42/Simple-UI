@@ -24,12 +24,12 @@ namespace Simple_UI
 
                 if (username != username2)
                 {
-                    Console.WriteLine("Email addresses did not match, please enter them again.");
+                    Console.WriteLine("\nEmail addresses did not match, please enter them again.");
                     continue;
                 }
                 else if (!username.Contains("@"))
                 {
-                    Console.WriteLine("Please enter an email address.");
+                    Console.WriteLine("\nPlease enter an email address.");
                     continue;
                 }
                 else
@@ -45,15 +45,7 @@ namespace Simple_UI
                         }
                         parsedUser += username[i];
                     }
-                    // to print out the parsed username uncomment the line below
-                    //Console.WriteLine(parsedUser);
 
-                    // now that we have the username, we can output it to a txt file for the bash script to read
-
-                    string currentUser = Environment.UserName;
-                    string partialPath = @"C:\\Users\\" + currentUser;
-                    string halfPath = "Desktop\\Thesis\\username.txt";
-                    string filePath = Path.Combine(partialPath, halfPath);
                     // just write to project directory
                     System.IO.File.WriteAllText("username.txt", parsedUser);
                     break;
@@ -87,36 +79,23 @@ namespace Simple_UI
 
                 if (password != password2)
                 {
-                    Console.WriteLine("\nPassword did not match, please re-enter them.\n");
+                    Console.WriteLine("\n\nPassword did not match, please re-enter them.\n");
                     continue;
                 }
                 else
                 {
-                    // the passwords matched, so now we can output the password to a txt file for the bash script to read
-                    string currentUser = Environment.UserName;
-                    string partialPath = @"C:\\Users\\" + currentUser;
-                    string halfPath = "Desktop\\Thesis\\password.txt";
-                    string filePath = Path.Combine(partialPath, halfPath);
-                    // just write to project directory
+                    // the passwords matched, so now we can output the password to a txt file
                     System.IO.File.WriteAllText("password.txt", password);
                     break;
                 }
             }
 
-            // get the file path where the scripts are found!
+            // execute batch script to automate adding a user to linux server
 
-            string userName = Environment.UserName;
-            string getToUser = @"C:\\Users\\" + userName;
-            string getToBatch = "Desktop\\Thesis\\testBatch.bat";
-            string pathToBatch = Path.Combine(getToUser, getToBatch);
-
-            // Generate and copy over ssh keys in a windows platform
-
-            ProcessStartInfo proc = new ProcessStartInfo();
-            proc.FileName = @"C:\windows\system32\cmd.exe";
-            proc.Arguments = @"/c testBatch.bat";
-            Process.Start(proc);
-
+            ProcessStartInfo sshKey = new ProcessStartInfo();
+            sshKey.FileName = @"C:\windows\system32\cmd.exe";
+            sshKey.Arguments = @"/c sendFiles.bat";
+            Process.Start(sshKey);
         }
     }
 }
